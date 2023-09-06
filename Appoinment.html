@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Receipt Generator</title>
+	<style>
+          body 
+          {
+            background-color:orange;
+          }
+		.container {
+			width: 50%;
+            height: 420px;
+			margin: auto;
+			text-align: center; 
+			padding: 10px;
+            border: 2px solid rgb(255, 255, 255);
+			border-radius: 10px;
+            background-color: rgb(0, 0, 0);
+            color: white; 
+		
+		}
+    
+        input[type="text"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="address"],
+		input[type="date"],
+		input[type="time"],
+		input[type="number"]
+		{
+			width:150px;
+            text-align: center;
+		}
+        
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+			text-align: left;
+		}
+		td
+		{
+			background-color:skyblue ;
+		}
+		th
+		{
+			background-color: skyblue;
+		}
+		th {
+			background-color:skyblue;
+		}
+
+		td, th {
+			padding: 10px;
+			border: 1px solid black;
+		}
+
+		.btn {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 20px;
+            font-weight: bold;
+		}
+
+		.btn:hover {
+			background-color: #3E8E41;
+		}
+    
+	</style>
+</head>
+<body>
+    
+	<div class="container">
+		<h2>Appoinment</h2>
+		<form>
+            <div class="sachu">
+			<label for="name">Paitent Name:</label>
+			<input type="text" id="name" name="name" required><br><br>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required><br><br>
+			<label for="phone">Phone:</label>
+			<input type="tel" id="phone" name="phone" required><br><br>
+			<label for="address">Address:</label>
+			<textarea id="address" name="address" required></textarea><br><br>
+			<label for="item">Date:</label>
+			<input type="date" id="date" name="date" required><br><br>
+            <label for="item">Time:</label>
+			<input type="time" id="time" name="time" required><br><br>
+			<label for="price">Paid Amount:</label>
+			<input type="number" id="price" name="price" required><br><br>
+            <!-- <tr>
+                <td>Payment type :-</td>
+                <td><select>
+                        <optgroup label="Online">
+                            <option>UPI</option>
+                            <option>Debit Card</option>
+                            <option>Bank Transfer</option>
+                        </optgroup>
+                        <optgroup label="Ofline">
+                            <option>Cash</option>
+                            <option>Check</option>
+                            <option>Bank Recpit</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr><br>
+ -->
+
+			<button type="button" onclick="generateReceipt()" class="btn">Appointment </button>
+        </div>
+		</form>
+		<div id="receipt"></div>
+	</div>
+	<script>
+		function generateReceipt() {
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var phone = document.getElementById("phone").value;
+			var address = document.getElementById("address").value;
+			var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+			var price = document.getElementById("price").value;
+
+			var receipt = "<h2>Receipt</h2>";
+			receipt += "<table>";
+			receipt += "<tr><th>Name</th><td>" + name + "</td></tr>";
+			receipt += "<tr><th>Email</th><td>" + email + "</td></tr>";
+			receipt += "<tr><th>Phone</th><td>" + phone + "</td></tr>";
+			receipt += "<tr><th>Address</th><td>" + address + "</td></tr>";
+			receipt += "<tr><th>Date</th><td>" + date + "</td></tr>";
+            receipt += "<tr><th>Time</th><td>" + time + "</td></tr>";
+			receipt += "<tr><th>Paid Amount </th><td>" + price + "</td></tr>";
+			receipt += "</table>";
+
+			document.getElementById("receipt").innerHTML = receipt;
+		}
+	</script>
+</body>
+</html>
